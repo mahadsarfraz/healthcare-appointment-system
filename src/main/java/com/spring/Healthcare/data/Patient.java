@@ -1,4 +1,4 @@
-package com.spring.Healthcare.model;
+package com.spring.Healthcare.data;
 
 import com.spring.Healthcare.enums.Userenum.UserRole;
 import jakarta.persistence.*;

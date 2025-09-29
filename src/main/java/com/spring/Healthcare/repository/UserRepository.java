@@ -1,6 +1,6 @@
 package com.spring.Healthcare.repository;
 
-import com.spring.Healthcare.model.User;
+import com.spring.Healthcare.data.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

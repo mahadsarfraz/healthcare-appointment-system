@@ -1,6 +1,6 @@
 package com.spring.Healthcare.repository;
 
-import com.spring.Healthcare.model.Patient;
+import com.spring.Healthcare.data.Patient;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 import java.time.LocalDate;
