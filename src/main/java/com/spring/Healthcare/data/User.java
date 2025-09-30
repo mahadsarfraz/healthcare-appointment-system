@@ -8,7 +8,6 @@ import lombok.AllArgsConstructor;
 
 @Data
 @NoArgsConstructor
-@AllArgsConstructor
 @Entity
 @Table(name = "users")
 @Inheritance(strategy = InheritanceType.JOINED)
@@ -38,6 +37,13 @@ public class User {
     @Column(name = "role", nullable = false)
     private UserRole role;
 
-    public User(Object o, String name, String email, String password, String phoneNumber, UserRole userRole) {
+    public User(Integer id, String firstName, String lastName, String email, String password, String phoneNumber, UserRole role) {
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.password = password;
+        this.phoneNumber = phoneNumber;
+        this.role = role;
     }
 }

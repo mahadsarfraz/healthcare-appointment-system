@@ -1,5 +1,6 @@
 package com.spring.Healthcare.model;
 
+import jdk.jshell.Snippet;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -17,4 +18,8 @@ public class AdminResponse {
     private String phoneNumber;
     private String department;
     private String position;
+
+    public static Snippet builder() {
+        return null;
+    }
 }

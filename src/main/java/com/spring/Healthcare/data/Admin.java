@@ -1,25 +1,24 @@
 package com.spring.Healthcare.data;
 
-import com.spring.Healthcare.enums.Userenum;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 @Data
-@EqualsAndHashCode(callSuper = true)
 @NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(name = "admins")
-@DiscriminatorValue("ADMIN")
-public class Admin extends User {
+public class Admin {
 
-    private String department;
-    private String position;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
+    
+    private String username;
+    private String password;
 
-    public Admin(String name, String email, String password, String phoneNumber, String department, String position) {
-        super(null, name, email, password, phoneNumber, Userenum.UserRole.ADMIN);
-        this.department = department;
-        this.position = position;
+    public Admin(String username, String password) {
     }
 }

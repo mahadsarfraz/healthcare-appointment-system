@@ -1,14 +1,16 @@
 package com.spring.Healthcare.model;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class CreateAdminRequest {
-    private String firstName;
-    private String lastName;
-    private String email;
-    private String password;
-    private String phoneNumber;
-    private String department;
-    private String position;
+    public String username;
+    public String password;
+
+
 }
+
