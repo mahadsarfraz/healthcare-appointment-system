@@ -1,4 +1,4 @@
-package com.spring.Healthcare.model;
+package com.spring.healthcare.model;
 
 import jdk.jshell.Snippet;
 import lombok.AllArgsConstructor;

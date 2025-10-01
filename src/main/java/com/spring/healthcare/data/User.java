@@ -1,10 +1,9 @@
-package com.spring.Healthcare.data;
+package com.spring.healthcare.data;
 
-import com.spring.Healthcare.enums.Userenum.UserRole;
+import com.spring.healthcare.enums.Userenum.UserRole;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.AllArgsConstructor;
 
 @Data
 @NoArgsConstructor

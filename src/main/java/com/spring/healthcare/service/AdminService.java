@@ -1,8 +1,8 @@
-package com.spring.Healthcare.service;
+package com.spring.healthcare.service;
 
-import com.spring.Healthcare.data.Admin;
-import com.spring.Healthcare.model.CreateAdminRequest;
-import com.spring.Healthcare.repository.AdminRepository;
+import com.spring.healthcare.data.Admin;
+import com.spring.healthcare.model.CreateAdminRequest;
+import com.spring.healthcare.repository.AdminRepository;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -24,7 +24,7 @@ public class AdminService {
     }
 
     public Admin createAdmin(CreateAdminRequest req) {
-        Admin newAdmin = new Admin(req.username, req.password);
+        Admin newAdmin = new Admin(req.getUsername(), req.getPassword());
         return adminRepository.save(newAdmin);
     }
 }

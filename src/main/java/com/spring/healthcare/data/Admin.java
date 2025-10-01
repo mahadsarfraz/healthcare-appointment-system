@@ -1,4 +1,4 @@
-package com.spring.Healthcare.data;
+package com.spring.healthcare.data;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
