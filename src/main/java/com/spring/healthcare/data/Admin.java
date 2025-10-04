@@ -1,9 +1,7 @@
 package com.spring.healthcare.data;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 @Data
 @NoArgsConstructor
@@ -20,5 +18,7 @@ public class Admin {
     private String password;
 
     public Admin(String username, String password) {
+        this.username = username;
+        this.password = password;
     }
 }

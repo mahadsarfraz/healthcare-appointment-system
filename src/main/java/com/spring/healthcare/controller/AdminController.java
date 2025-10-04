@@ -18,7 +18,7 @@ public class AdminController {
 
     @PostMapping()
     public Admin createAdmin(@RequestBody CreateAdminRequest req) {
-        return adminService.createAdmin(req);
+       return adminService.createAdmin(req);
     }
 
 }

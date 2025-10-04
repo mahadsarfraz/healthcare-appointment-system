@@ -27,4 +27,9 @@ public class AdminService {
         Admin newAdmin = new Admin(req.getUsername(), req.getPassword());
         return adminRepository.save(newAdmin);
     }
+
+//    public void check(CreateAdminRequest req) {
+//        String username = req.getUsername();
+//        String password = req.getPassword();
+//    }
 }
