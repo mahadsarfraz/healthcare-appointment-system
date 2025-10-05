@@ -12,12 +12,7 @@ import lombok.NoArgsConstructor;
 @Builder
 public class AdminResponse {
     private Integer id;
-    private String firstName;
-    private String lastName;
-    private String email;
-    private String phoneNumber;
-    private String department;
-    private String position;
+    private String username;
 
     public static Snippet builder() {
         return null;
