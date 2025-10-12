@@ -1,6 +1,7 @@
 package com.spring.healthcare.service;
 
 import com.spring.healthcare.data.Admin;
+import com.spring.healthcare.exception.BadRequestException;
 import com.spring.healthcare.exception.DataValidationException;
 import com.spring.healthcare.model.AdminResponse;
 import com.spring.healthcare.model.CreateAdminRequest;
@@ -33,7 +34,7 @@ public class AdminService {
 
     public AdminResponse createAdmin(CreateAdminRequest req) {
         if(req.getUsername() == null || req.getPassword() == null) {
-            throw new DataValidationException("Username and Password must not be null");
+            throw new BadRequestException("Username and Password must not be null");
         }
         // Hashing password
         String hashedPassword = PasswordUtil.hashPassword(req.getPassword());
