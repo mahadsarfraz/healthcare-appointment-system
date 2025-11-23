@@ -1,5 +1,6 @@
 package com.spring.healthcare.data;
 
+import com.spring.healthcare.enums.Userenum;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -16,9 +17,12 @@ public class Admin {
     
     private String username;
     private String password;
+    @Enumerated(EnumType.STRING)
+    private Userenum.UserRole role = Userenum.UserRole.ADMIN;
 
     public Admin(String username, String password) {
         this.username = username;
         this.password = password;
+        this.role = Userenum.UserRole.ADMIN;
     }
 }
