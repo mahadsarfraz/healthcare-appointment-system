@@ -9,5 +9,9 @@ public class PasswordUtil {
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
         return passwordEncoder.encode(password);
     }
+
+    public static boolean isPasswordValid(String password) {
+        return password.length() >= 6;
+    }
 }
 

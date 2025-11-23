@@ -13,7 +13,6 @@ public class CreateAdminRequest {
     @NotBlank(message = "Username cannot be blank")
     private String username;
     @NotBlank(message = "Password cannot be blank")
-    @Size(min = 6, message = "Password must be at least 6 characters long")
     private String password;
 
 }

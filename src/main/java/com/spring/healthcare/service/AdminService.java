@@ -36,6 +36,14 @@ public class AdminService {
         if(req.getUsername() == null || req.getPassword() == null) {
             throw new BadRequestException("Username and Password must not be null");
         }
+
+        if(isAdminExists(req.getUsername())) {
+            throw new DataValidationException("Admin with username " + req.getUsername() +  " already exists");
+        }
+
+        if(!PasswordUtil.isPasswordValid(req.getPassword())) {
+            throw new DataValidationException("Password length must be at least 6 characters");
+        }
         // Hashing password
         String hashedPassword = PasswordUtil.hashPassword(req.getPassword());
         Admin admin = new Admin(req.getUsername(), hashedPassword);
@@ -59,5 +67,9 @@ public class AdminService {
         Admin admin = adminRepository.findById(id).orElseThrow(EntityNotFoundException::new);
         adminRepository.delete(admin);
         return "Admin with ID " + id + " has been deleted.";
+    }
+
+    private boolean isAdminExists(String username) {
+        return adminRepository.existsByUsername(username);
     }
 }
