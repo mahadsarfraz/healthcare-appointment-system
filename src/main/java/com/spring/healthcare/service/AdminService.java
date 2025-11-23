@@ -54,6 +54,10 @@ public class AdminService {
     public AdminResponse updateAdmin(Integer id, UpdateAdminReq req) {
         Admin admin = adminRepository.findById(id).orElseThrow(EntityNotFoundException::new);
         if (req.getPassword() != null && !req.getPassword().isEmpty()) {
+
+            if (!PasswordUtil.isPasswordValid(req.getPassword())) {
+                throw new DataValidationException("Password length must be at least 6 characters");
+            }
             String hashedPassword = PasswordUtil.hashPassword(req.getPassword());
             admin.setPassword(hashedPassword);
             admin = adminRepository.save(admin);
