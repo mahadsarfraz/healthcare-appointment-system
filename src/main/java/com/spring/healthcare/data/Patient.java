@@ -1,5 +1,6 @@
 package com.spring.healthcare.data;
 
+import com.spring.healthcare.enums.Userenum;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -27,4 +28,11 @@ public class Patient extends User {
 
     @Column(name = "allergies")
     private String allergies;
+
+    public Patient(Integer id, String firstName, String lastName, String email, String password,
+                   String phoneNumber, LocalDate dateOfBirth, String bloodGroup) {
+        super(id, firstName, lastName, email, password, phoneNumber, Userenum.UserRole.PATIENT);
+        this.dateOfBirth = dateOfBirth;
+        this.bloodGroup = bloodGroup;
+    }
 }

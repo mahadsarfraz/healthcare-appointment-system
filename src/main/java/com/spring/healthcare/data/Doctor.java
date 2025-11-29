@@ -36,9 +36,8 @@ public class Doctor extends User {
     private Boolean isAvailable = true;
 
     public Doctor(Integer id, String firstName, String lastName, String email, String password,
-                  String phoneNumber, Userenum.UserRole role, String specialization,
-                  String licenseNumber) {
-        super(id, firstName, lastName, email, password, phoneNumber, role);
+                  String phoneNumber, String specialization, String licenseNumber) {
+        super(id, firstName, lastName, email, password, phoneNumber, Userenum.UserRole.DOCTOR);
         this.specialization = specialization;
         this.licenseNumber = licenseNumber;
         this.isAvailable = true;
