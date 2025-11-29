@@ -26,8 +26,6 @@ public class CreateDoctorRequest {
     @NotBlank(message = "Phone number cannot be blank")
     private String phoneNumber;
 
-    private Userenum.UserRole role = Userenum.UserRole.DOCTOR;
-
     @NotBlank(message = "Specialization cannot be blank")
     private String specialization;
 
@@ -40,18 +38,4 @@ public class CreateDoctorRequest {
 
     private Double consultationFee;
 
-    public static DoctorResponse mapToDocResponse(Doctor doctor) {
-        return new DoctorResponse(
-                doctor.getId(),
-                doctor.getFirstName(),
-                doctor.getLastName(),
-                doctor.getEmail(),
-                doctor.getPhoneNumber(),
-                doctor.getSpecialization(),
-                doctor.getLicenseNumber(),
-                doctor.getYearsOfExperience(),
-                doctor.getQualification(),
-                doctor.getConsultationFee()
-        );
-    }
 }
