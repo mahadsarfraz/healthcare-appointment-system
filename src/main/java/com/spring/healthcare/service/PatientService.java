@@ -1,6 +1,7 @@
 package com.spring.healthcare.service;
 
 import com.spring.healthcare.data.Patient;
+import com.spring.healthcare.enums.Userenum;
 import com.spring.healthcare.exception.DataValidationException;
 import com.spring.healthcare.model.CreatePatientRequest;
 import com.spring.healthcare.model.PatientResponse;
@@ -51,6 +52,7 @@ public class PatientService {
         patient.setEmail(req.getEmail());
         patient.setPassword(hashedPassword);
         patient.setPhoneNumber(req.getPhoneNumber());
+        patient.setRole(Userenum.UserRole.PATIENT);
         patient.setDateOfBirth(req.getDateOfBirth());
         patient.setBloodGroup(req.getBloodGroup());
         patient.setMedicalHistory(req.getMedicalHistory());
