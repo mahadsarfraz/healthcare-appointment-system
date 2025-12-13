@@ -23,13 +23,13 @@ public class AdminService {
     public List<AdminResponse> findAll(){
         List<Admin> admins = adminRepository.findAll();
         return admins.stream()
-                .map(admin -> new AdminResponse(admin.getId(), admin.getUsername()))
+                .map(admin -> new AdminResponse(admin.getId(), admin.getEmail()))
                 .toList();
     }
 
     public AdminResponse findAdminById(Integer id) {
         Admin admin = adminRepository.findById(id).orElseThrow(EntityNotFoundException::new);
-        return new AdminResponse(admin.getId(), admin.getUsername());
+        return new AdminResponse(admin.getId(), admin.getEmail());
     }
 
     public AdminResponse createAdmin(CreateAdminRequest req) {
@@ -48,7 +48,7 @@ public class AdminService {
         String hashedPassword = PasswordUtil.hashPassword(req.getPassword());
         Admin admin = new Admin(req.getUsername(), hashedPassword);
         Admin savedAdmin = adminRepository.save(admin);
-        return new AdminResponse(savedAdmin.getId(), savedAdmin.getUsername());
+        return new AdminResponse(savedAdmin.getId(), savedAdmin.getEmail());
     }
 
     public AdminResponse updateAdmin(Integer id, UpdateAdminReq req) {
@@ -61,7 +61,7 @@ public class AdminService {
             String hashedPassword = PasswordUtil.hashPassword(req.getPassword());
             admin.setPassword(hashedPassword);
             admin = adminRepository.save(admin);
-            return new AdminResponse(admin.getId(), admin.getUsername());
+            return new AdminResponse(admin.getId(), admin.getEmail());
         } else {
             throw new IllegalArgumentException("Password must not be null or empty");
         }

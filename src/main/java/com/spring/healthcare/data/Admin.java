@@ -15,13 +15,13 @@ public class Admin {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     
-    private String username;
+    private String email;
     private String password;
     @Enumerated(EnumType.STRING)
     private Userenum.UserRole role = Userenum.UserRole.ADMIN;
 
-    public Admin(String username, String password) {
-        this.username = username;
+    public Admin(String email, String password) {
+        this.email = email;
         this.password = password;
         this.role = Userenum.UserRole.ADMIN;
     }
