@@ -33,12 +33,12 @@ public class AdminService {
     }
 
     public AdminResponse createAdmin(CreateAdminRequest req) {
-        if(req.getUsername() == null || req.getPassword() == null) {
-            throw new BadRequestException("Username and Password must not be null");
+        if(req.getEmail() == null || req.getPassword() == null) {
+            throw new BadRequestException("Email and Password must not be null");
         }
 
-        if(isAdminExists(req.getUsername())) {
-            throw new DataValidationException("Admin with username " + req.getUsername() +  " already exists");
+        if(isAdminExists(req.getEmail())) {
+            throw new DataValidationException("Admin with email " + req.getEmail() +  " already exists");
         }
 
         if(!PasswordUtil.isPasswordValid(req.getPassword())) {
@@ -46,7 +46,7 @@ public class AdminService {
         }
         // Hashing password
         String hashedPassword = PasswordUtil.hashPassword(req.getPassword());
-        Admin admin = new Admin(req.getUsername(), hashedPassword);
+        Admin admin = new Admin(req.getEmail(), hashedPassword);
         Admin savedAdmin = adminRepository.save(admin);
         return new AdminResponse(savedAdmin.getId(), savedAdmin.getEmail());
     }
@@ -74,6 +74,6 @@ public class AdminService {
     }
 
     private boolean isAdminExists(String username) {
-        return adminRepository.existsByUsername(username);
+        return adminRepository.existsByEmail(username);
     }
 }

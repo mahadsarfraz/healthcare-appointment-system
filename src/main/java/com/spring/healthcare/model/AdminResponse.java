@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 @Builder
 public class AdminResponse {
     private Integer id;
-    private String username;
+    private String email;
 
     public static Snippet builder() {
         return null;
